@@ -375,7 +375,7 @@ class _FamilyTab extends StatelessWidget {
 
   static const _members = [
     _FamilyMember(
-      'Pada',
+      'Barake',
       'Membre de la famille',
       'À compléter',
       Color(0xFFE0ECEB),

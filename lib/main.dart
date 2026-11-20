@@ -5,9 +5,10 @@ void main() {
   runApp(const CvApp());
 }
 
-const _navy = Color(0xFF203047);
-const _teal = Color(0xFF287C78);
-const _cream = Color(0xFFF7F5EF);
+const _navy = Color(0xFF1D2A44);
+const _teal = Color(0xFF167C80);
+const _cream = Color(0xFFF4F6F8);
+const _gold = Color(0xFFD4AF37);
 
 class CvApp extends StatelessWidget {
   const CvApp({super.key});
@@ -15,7 +16,7 @@ class CvApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mon CV Flutter',
+      title: 'CV de Jules Mwenelombe',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
@@ -25,12 +26,37 @@ class CvApp extends StatelessWidget {
           backgroundColor: _cream,
           foregroundColor: _navy,
           centerTitle: false,
+          elevation: 0,
+          scrolledUnderElevation: 0,
+        ),
+        cardTheme: CardThemeData(
+          color: Colors.white,
+          elevation: 1,
+          shadowColor: _navy.withValues(alpha: 0.12),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
+        ),
+        navigationBarTheme: NavigationBarThemeData(
+          backgroundColor: Colors.white,
+          indicatorColor: _gold.withValues(alpha: 0.22),
+          labelTextStyle: WidgetStateProperty.resolveWith(
+            (states) => TextStyle(
+              color: states.contains(WidgetState.selected)
+                  ? _navy
+                  : Colors.black54,
+              fontSize: 12,
+              fontWeight: states.contains(WidgetState.selected)
+                  ? FontWeight.w700
+                  : FontWeight.w500,
+            ),
+          ),
         ),
         inputDecorationTheme: InputDecorationTheme(
           filled: true,
           fillColor: Colors.white,
           border: OutlineInputBorder(
-            borderRadius: BorderRadius.circular(14),
+            borderRadius: BorderRadius.circular(12),
             borderSide: BorderSide.none,
           ),
         ),
@@ -187,6 +213,11 @@ class _PortfolioPageState extends State<PortfolioPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text(_titles[_selectedIndex]),
+        titleTextStyle: const TextStyle(
+          color: _navy,
+          fontSize: 20,
+          fontWeight: FontWeight.w700,
+        ),
         actions: [
           IconButton(
             tooltip: 'Se déconnecter',
@@ -236,6 +267,8 @@ class _CvTab extends StatelessWidget {
       children: [
         Card(
           color: _navy,
+          elevation: 4,
+          shadowColor: _navy.withValues(alpha: 0.28),
           child: Padding(
             padding: const EdgeInsets.all(22),
             child: Column(
@@ -251,7 +284,7 @@ class _CvTab extends StatelessWidget {
                 ),
                 const SizedBox(height: 14),
                 Text(
-                  'kambale Kithi Lucien',
+                  'Jules Mwenelombe',
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.headlineSmall?.copyWith(
                     color: Colors.white,
@@ -342,22 +375,10 @@ class _FamilyTab extends StatelessWidget {
 
   static const _members = [
     _FamilyMember(
-      'Nom à renseigner',
-      'Muhindo justin',
-      'comptable',
-      Color(0xFFE2F1EE),
-    ),
-    _FamilyMember(
-      'Nom à renseigner',
-      'kabuo odile',
-      'menager',
-      Color(0xFFFFEBD8),
-    ),
-    _FamilyMember(
-      'Nom à renseigner',
-      'eddy / jissy',
-      'etudiant(e)',
-      Color(0xFFE7E9F7),
+      'Pada',
+      'Membre de la famille',
+      'À compléter',
+      Color(0xFFE0ECEB),
     ),
   ];
 

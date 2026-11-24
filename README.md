@@ -3,6 +3,10 @@
 Petite application Flutter de démonstration avec une page de connexion, un CV,
 une page famille et une page de contact.
 
+## Démonstration vidéo
+
+[Regarder la vidéo de présentation](media/demo-cv-flutter.mp4)
+
 ## Lancer l'application
 
 Dans un terminal ouvert dans ce dossier :

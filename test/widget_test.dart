@@ -1,29 +1,21 @@
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:cv_flutter_lucien/main.dart';
 
 void main() {
-  testWidgets('connexion et navigation entre les pages', (tester) async {
+  testWidgets('affiche le formulaire d’authentification API', (tester) async {
     await tester.pumpWidget(const CvApp());
 
-    expect(find.text('Bienvenue !'), findsOneWidget);
+    expect(find.text('Bienvenue'), findsOneWidget);
+    expect(find.text('Adresse e-mail'), findsOneWidget);
+    expect(find.text('Mot de passe'), findsOneWidget);
+
     await tester.tap(find.text('Se connecter'));
     await tester.pumpAndSettle();
-    expect(find.text('Entre ton identifiant.'), findsOneWidget);
+    expect(find.text('Entre ton adresse e-mail.'), findsOneWidget);
 
-    await tester.enterText(find.byType(EditableText).first, 'demo');
-    await tester.enterText(find.byType(EditableText).last, 'motdepasse');
-    await tester.tap(find.text('Se connecter'));
-    await tester.pumpAndSettle();
-    expect(find.text('Votre prénom NOM'), findsOneWidget);
-
-    await tester.tap(find.text('Famille'));
-    await tester.pumpAndSettle();
-    expect(find.text('Les personnes qui comptent pour moi.'), findsOneWidget);
-
-    await tester.tap(find.text('Contact'));
-    await tester.pumpAndSettle();
-    expect(find.text('ton.email@exemple.com'), findsOneWidget);
+    await tester.tap(find.text('Pas de compte ? Créer un compte'));
+    await tester.pump();
+    expect(find.text('Créer le compte'), findsOneWidget);
   });
 }
